@@ -2,6 +2,10 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+axios.get('https://api.github.com/users/vanesa-fleurs')
+.then(data => {
+  console.log(data)
+})
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -53,3 +57,24 @@ const followersArray = [];
   luishrd
   bigknell
 */
+const cardsHtml = document.querySelector('.cards') 
+
+//component here
+const createCards = (objectParam) => {
+  //create Elements
+  const cardC = document.createElement('div');
+  const imgC = document.createElement('img');
+  const h3C = document.createElement('h3');
+  const pC1 = document.createElement('p');
+  const pC2 = document.createElement('p');
+  const pC3 = document.createElement('p');
+  const aC = document.createElement('a');
+  const pC4 = document.createElement('p');
+  const pC5 = document.createElement('p');
+  const pC6 = document.createElement('p');
+
+  //append Elements
+
+
+  //class Names 
+}
