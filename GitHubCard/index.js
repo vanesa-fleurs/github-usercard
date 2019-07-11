@@ -62,8 +62,9 @@ const cardsHtml = document.querySelector('.cards')
 //component here
 const createCards = (objectParam) => {
   //create Elements
-  const cardC = document.createElement('div');
+  const cardContainer = document.createElement('div');
   const imgC = document.createElement('img');
+  const cardInfoC = document.createElement('div');
   const h3C = document.createElement('h3');
   const pC1 = document.createElement('p');
   const pC2 = document.createElement('p');
@@ -74,7 +75,25 @@ const createCards = (objectParam) => {
   const pC6 = document.createElement('p');
 
   //append Elements
-
+  cardContainer.appendChild(imgC);
+  cardContainer.appendChild(cardInfoC);
+  cardInfoC.appendChild(h3C);
+  cardInfoC.appendChild(pC1);
+  cardInfoC.appendChild(pC2);
+  cardInfoC.appendChild(pC3);
+  pC3.appendChild(aC);
+  cardInfoC.appendChild(pC4);
+  cardInfoC.appendChild(pC5);
+  cardInfoC.appendChild(pC6);
 
   //class Names 
+  cardContainer.classList.add('card');
+  cardInfoC.classList.add('card-info');
+  h3C.classList.add('name');
+  pC1.classList.add('username');
+
+
+  //content
+  // imgC.src = ?
+
 }
