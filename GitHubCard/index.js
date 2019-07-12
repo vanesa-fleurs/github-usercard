@@ -2,10 +2,23 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-axios.get('https://api.github.com/users/vanesa-fleurs')
-.then(data => {
-  console.log(data)
-})
+
+const cardsHtml = document.querySelector('.cards') 
+const followersArray = ["tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"];
+
+followersArray.forEach(follower => {
+  axios.get(`https://api.github.com/users/${follower}`)
+  .then(data => {
+    const info = data.data; 
+    console.log(info);
+
+    const cardInfo = createCards(info)
+    cardsHtml.appendChild(cardInfo)
+  })
+  .catch(err => {console.log('Did not work!')})
+} )
+
+
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -28,7 +41,6 @@ axios.get('https://api.github.com/users/vanesa-fleurs')
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -57,7 +69,7 @@ const followersArray = [];
   luishrd
   bigknell
 */
-const cardsHtml = document.querySelector('.cards') 
+
 
 //component here
 const createCards = (objectParam) => {
@@ -94,6 +106,16 @@ const createCards = (objectParam) => {
 
 
   //content
-  // imgC.src = ?
+  imgC.src = objectParam.avatar_url;
+  h3C.textContent = objectParam.name;
+  pC1.textContent = objectParam.login
+  pC2.textContent = `Location: ${objectParam.location}`
+  pC3.textContent = `Profile: `
+  aC.href = objectParam.url;
+  aC.textContent = objectParam.url;
+  pC4.textContent = `Followers: ${objectParam.followers}`
+  pC5.textContent = `Following: ${objectParam.following}`
+  pC6.textContent = `Bio: ${objectParam.bio}`
 
+  return cardContainer;
 }
